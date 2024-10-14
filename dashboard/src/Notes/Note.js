@@ -8,12 +8,13 @@ function Note(props) {
 
   return (
     <div className="note" style={{ backgroundColor: props.color }}>
-      <h1 style={{ fontFamily: props.font, color: props.fontColor }}>{props.title}</h1>
+      <h1 style={{ fontFamily: props.titleFont, color: props.titleColor }}>{props.title}</h1>
       <p
       style={{
+        fontFamily: props.contentFont,
         fontWeight: props.isBold ? "bold" : "normal",
         fontStyle: props.isItalic ? "italic" : "normal",
-        color: props.fontColor
+        color: props.contentColor
       }}
       >{props.content}</p>
       {props.image && (
