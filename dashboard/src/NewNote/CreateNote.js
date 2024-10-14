@@ -11,6 +11,8 @@ function CreateNote(props) {
       title: "",
       titleFont: "Arial",          // Font for the title
       titleColor: "#000000",        // Font color for the title
+      isTitleBold: false,     // New: Bold for title
+      isTitleItalic: false,   // New: Italic for title
       content: "",
       contentFont: "Arial",         // Font for the content
       contentColor: "#000000",      // Font color for the content
@@ -53,6 +55,8 @@ function CreateNote(props) {
       title: "",
       titleFont: "Arial",
       titleColor: "#000000",
+      isTitleBold: false,     // New: Bold for title
+      isTitleItalic: false,   // New: Italic for title
       content: "",
       contentFont: "Arial",
       contentColor: "#000000",
@@ -88,6 +92,8 @@ function CreateNote(props) {
             placeholder="Add Title"
             style={{
               fontFamily: note.titleFont,
+              fontWeight: note.isTitleBold ? "bold" : "normal",
+              fontStyle: note.isTitleItalic ? "italic" : "normal",
               color: note.titleColor
             }}
           />
@@ -98,12 +104,30 @@ function CreateNote(props) {
             <option value="Georgia">Georgia</option>
           </select>
           <input
-            type="color"
-            name="titleColor"
-            value={note.titleColor}
-            onChange={handleChange}
-            title="Pick a font color for the title"
-          />
+      type="color"
+      name="titleColor"
+      value={note.titleColor}
+      onChange={handleChange}
+      title="Pick a font color for the title"
+    />
+    <label>
+      <input
+        type="checkbox"
+        name="isTitleBold"
+        checked={note.isTitleBold}
+        onChange={handleChange}
+      />
+      Bold Title
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        name="isTitleItalic"
+        checked={note.isTitleItalic}
+        onChange={handleChange}
+      />
+      Italic Title
+    </label>
         </>
         )}
 

@@ -43,6 +43,8 @@ function App() {
                 title={newNote.title}
                 titleFont={newNote.titleFont}
                 titleColor={newNote.titleColor}
+                isTitleBold={newNote.isTitleBold}      // New prop
+                isTitleItalic={newNote.isTitleItalic}  // New prop
                 content={newNote.content}
                 contentColor={newNote.contentColor}
                 contentFont={newNote.contentFont}

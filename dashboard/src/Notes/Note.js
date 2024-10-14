@@ -8,7 +8,12 @@ function Note(props) {
 
   return (
     <div className="note" style={{ backgroundColor: props.color }}>
-      <h1 style={{ fontFamily: props.titleFont, color: props.titleColor }}>{props.title}</h1>
+      <h1 style={{ 
+        fontFamily: props.titleFont,
+        fontWeight: props.isTitleBold ? "bold" : "normal",
+        fontStyle: props.isTitleItalic ? "italic" : "normal",
+        color: props.titleColor }}>{props.title}
+      </h1>
       <p
       style={{
         fontFamily: props.contentFont,
