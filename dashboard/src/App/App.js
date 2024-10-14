@@ -41,10 +41,12 @@ function App() {
                 key={index}
                 id={index}
                 title={newNote.title}
+                titleFont={newNote.titleFont}
+                titleColor={newNote.titleColor}
                 content={newNote.content}
+                contentColor={newNote.contentColor}
+                contentFont={newNote.contentFont}
                 color={newNote.color}
-                font={newNote.font}
-                fontColor={newNote.fontColor}
                 isBold={newNote.isBold}
                 isItalic={newNote.isItalic}
                 image={newNote.image}
