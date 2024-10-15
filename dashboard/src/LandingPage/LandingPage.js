@@ -20,7 +20,7 @@ function LandingPage() {
       </Link>
       <Link to="/registration">
         <button style={{ padding: "10px 20px", marginTop: "20px" }}>
-          Log In
+          Register
         </button>
       </Link>
     </div>
