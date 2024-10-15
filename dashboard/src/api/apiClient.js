@@ -23,12 +23,12 @@ export default class ApiClient {
     }
 
     static getUser = async () => {
-            const cook =  cookies.get('token');
+        const cook = cookies.get('token');
         console.log(cook);
         const response = await fetch(getUserEndpoint, {
             method: 'GET',
             headers: {
-                'x-token': cook && cook.token ? cook.token: '',
+                'x-token': cook && cook.token ? cook.token : '',
                 'Content-Type': 'application/json',
             }
         });
@@ -37,17 +37,17 @@ export default class ApiClient {
 
     static register = async (data) => {
         const response = await fetch(`${baseUrl}/register`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
         });
         return response;
-      };
+    };
 
     static createNote = async (data) => {
-        
+
         const body = { ...data };
         const response = await fetch(createNote, {
             method: 'post',
@@ -59,7 +59,20 @@ export default class ApiClient {
         });
         return response;
     }
-    static logout = ()=>{
+
+    static getNotes = async () => {
+        const token = cookies.get('token'); // Retrieve JWT token from cookies
+        const response = await fetch(`${baseUrl}/notes`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'token': token || '',
+            },
+        });
+        return response;
+    };
+
+    static logout = () => {
         cookies.remove('token');
         window.location.href = '/';
 
