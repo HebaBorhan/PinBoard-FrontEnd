@@ -1,9 +1,13 @@
 import React from "react";
+import header from "./header.png"
 
 function Header() {
   return (
     <header>
-      <h1>PinBoard</h1>
+      <img 
+        src={header} 
+        alt="header Logo"
+      />
     </header>
   );
 }
