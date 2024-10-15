@@ -10,7 +10,7 @@ function LoginPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // Simulate login (later, replace this with real authentication)
+    // fetch login data
       ApiClient.login(username,password).then(response=>{
         if(response.ok){ // status == 200
 
@@ -35,7 +35,7 @@ function LoginPage() {
         <div>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Email"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
