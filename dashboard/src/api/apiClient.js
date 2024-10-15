@@ -72,6 +72,18 @@ export default class ApiClient {
         return response;
     };
 
+    static deleteNote = async (id) => {
+        const token = cookies.get('token');
+        const response = await fetch(`${baseUrl}/notes/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'token': token || '',
+          },
+        });
+        return response;
+      };      
+
     static logout = () => {
         cookies.remove('token');
         window.location.href = '/';
