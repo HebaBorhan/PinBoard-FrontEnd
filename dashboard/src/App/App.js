@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -6,6 +6,7 @@ import Note from "../Notes/Note";
 import CreateNote from "../NewNote/CreateNote";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
+import Register from "../Registration/Register";
 
 
 function App() {
@@ -26,41 +27,46 @@ function App() {
   }
 
   return (
-    <Router>
-    <Header />
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route
-        path="/dashboard"
-        element={
-          <>
-            <CreateNote onAdd={addNote} />
-            {notes.map((newNote, index) => (
-              <Note
-                key={index}
-                id={index}
-                title={newNote.title}
-                titleFont={newNote.titleFont}
-                titleColor={newNote.titleColor}
-                isTitleBold={newNote.isTitleBold}      // New prop
-                isTitleItalic={newNote.isTitleItalic}  // New prop
-                content={newNote.content}
-                contentColor={newNote.contentColor}
-                contentFont={newNote.contentFont}
-                color={newNote.color}
-                isBold={newNote.isBold}
-                isItalic={newNote.isItalic}
-                image={newNote.image}
-                onDelete={deleteNote}
-              />
-            ))}
-          </>
-        }
-      />
-    </Routes>
-    <Footer />
-  </Router>
+    <div className="app-container"> {/* New wrapper */}
+      <Router>
+        <Header />
+        <main className="main-content">  {/* Main content section */}
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/registration" element={<Register />}/>
+            <Route
+              path="/dashboard"
+              element={
+                <>
+                  <CreateNote onAdd={addNote} />
+                  {notes.map((newNote, index) => (
+                    <Note
+                      key={index}
+                      id={index}
+                      title={newNote.title}
+                      titleFont={newNote.titleFont}
+                      titleColor={newNote.titleColor}
+                      isTitleBold={newNote.isTitleBold}      // New prop
+                      isTitleItalic={newNote.isTitleItalic}  // New prop
+                      content={newNote.content}
+                      contentColor={newNote.contentColor}
+                      contentFont={newNote.contentFont}
+                      color={newNote.color}
+                      isBold={newNote.isBold}
+                      isItalic={newNote.isItalic}
+                      image={newNote.image}
+                      onDelete={deleteNote}
+                    />
+                  ))}
+                </>
+              }
+            />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
