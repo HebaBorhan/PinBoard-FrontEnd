@@ -14,12 +14,12 @@ function LandingPage() {
         Hold That Thought!
       </p>
       <Link to="/login">
-        <button style={{ padding: "10px 20px", marginTop: "20px" }}>
+        <button style={{ fontSize: "14px", padding: "10px 20px", marginTop: "20px", marginRight: "20px" }}>
           Log In
         </button>
       </Link>
       <Link to="/registration">
-        <button style={{ padding: "10px 20px", marginTop: "20px" }}>
+        <button style={{ fontSize: "14px", padding: "10px 20px", marginTop: "20px" }}>
           Register
         </button>
       </Link>
