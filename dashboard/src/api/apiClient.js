@@ -73,7 +73,6 @@ export default class ApiClient {
         console.log(token)
         const response = await fetch(getNote, {
             method: 'GET',
-            
             headers: {
                 'Content-Type': 'application/json',
                 'token': cook && cook.token ? cook.token : '',

@@ -105,6 +105,8 @@ function CreateNote(props) {
         event.preventDefault();
         props.onAdd(note); // Send note data to parent component
 
+        console.log(note)
+
         ApiClient.createNote(note).then((response) => {
             if (response.status === 200) {
                 response.json().then((data) => {

@@ -16,7 +16,13 @@ function LoginPage() {
 
         response.json().then(data => {
           cookies.set('token', data)
-          navigate("/dashboard");
+          
+          ApiClient.getUser().then(response => {
+            if (response.ok) window.location.href = '/dashboard';
+        })
+
+          
+          // navigate("/dashboard");
 
 
         })
