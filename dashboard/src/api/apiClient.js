@@ -102,7 +102,8 @@ export default class ApiClient {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'token': token || '',
+                'token': token && token.token ? token.token : '',
+
             },
         });
         if (!response.ok) console.error('Failed to update note:', await response.json());
