@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ApiClient from '../utils/ApiClient';
+import ApiClient from '../api/apiClient';
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');
@@ -25,7 +25,7 @@ function ForgotPassword() {
     return (
         <div style={{ textAlign: 'center', marginTop: '100px' }}>
             <h2>Forgot Password</h2>
-            <p>Enter your email to receive a temporary password.</p>
+            <p>Enter your Email to receive a Temporary Password</p>
             <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
                 <input 
                     type="email" 
