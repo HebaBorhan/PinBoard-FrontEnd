@@ -1,78 +1,77 @@
-html,
-body {
-  height: 100%;
-  /* Ensure full height for Flexbox layout */
+/* Base Styling */
+html, body {
+  height: 100%; /* Full height for layout */
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 100%; /* Ensure the body takes full width */
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box; /* Consistent box sizing */
 }
 
+*, *::before, *::after {
+  box-sizing: inherit; /* Ensure all elements inherit box-sizing */
+}
+
+/* Background and Body Styling */
+body {
+  background-color: hsl(141, 44%, 35%);
+  background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
+  background-size: cover; /* Ensure the background image fills the space */
+  color: #efffa8;
+  line-height: 1.6;
+}
+
+/* App Container Layout */
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  /* Ensure it takes the full height of the viewport */
+  min-height: 100vh; /* Full viewport height */
 }
 
-html {
-  font-family: "Montserrat", sans-serif;
-}
-
-body {
-  background: #eee;
-  background-color: hsl(141, 44%, 35%);
-  background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
-  color: #efffa8;
-}
-
+/* Main Content Section */
 .main-content {
-  flex: 1;
+  flex: 1; /* Takes up all available space */
   padding: 16px;
-  /* Main content will take up all available space */
 }
 
+/* Header Styling */
 header {
   background-color: #f5d8b6;
-  padding: 8px 0; /* Reduced top and bottom padding */
-  margin: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  color: hsl(141, 44%, 35%);
-  display: flex;
-  justify-content: center; /* Center-align the text */
-  align-items: center; /* Align text vertically */
-  height: 2.5rem; /* New smaller height */
-}
-
-header img {
-  margin: 0; /* Remove margin around heading */
-  color: hsl(141, 44%, 35%);
-  height:180px;
-  width:300px;
-}
-
-footer {
-  background-color: #f5d8b6;
-  padding: 8px 0; /* Reduced padding */
-  margin: 0;
-  left: 0;
-  right: 0;
+  height: 2.5rem; /* Compact header */
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
   color: hsl(141, 44%, 35%);
-  height: 2.5rem; /* New smaller height */
+  margin: 0;
+}
+
+header img {
+  height: 150px;
+  width: 300px;
+  max-width: 100%; /* Ensure it scales on smaller screens */
+  margin: 0;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #f5d8b6;
+  height: 2.5rem;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(141, 44%, 35%);
 }
 
 footer p {
-  margin: 0; /* Remove extra margin */
-  font-size: 12px; /* Adjust font size for the smaller footer */
+  margin: 0;
+  font-size: 12px;
 }
 
+/* Note Component Styling */
 .note {
   background: #fff;
   border-radius: 7px;
@@ -91,7 +90,7 @@ footer p {
 .note p {
   font-size: 1.1em;
   margin-bottom: 10px;
-  white-space: pre-wrap;
+  white-space: pre-wrap; /* Preserve whitespace */
   word-wrap: break-word;
 }
 
@@ -107,38 +106,11 @@ footer p {
   outline: none;
 }
 
-/* Ensure label text appears to the right of the checkbox */
-.note-label {
-  display: inline-flex;  /* Use inline-flex for a more natural flow */
-  align-items: center;   /* Vertically align items */
-  font-family: "Arial", sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 1.5; 
-  color: hsl(142, 58%, 25%);
-  margin: 8px 0;
-  white-space: nowrap;  /* Prevent the text from wrapping to a new line */
-}
-
-/* Ensure the checkbox aligns properly with text */
-.note-label input {
-  margin-right: 10px;   /* Add space between checkbox and text */
-  margin-left: 30px;
-  transform: translateY(1px);  /* Slightly adjust vertical alignment */
-  width: 18px;
-  height: 18px; /* Ensure consistent checkbox size */
-}
-
-/* Optional hover effect */
-.note-label:hover {
-  color: hsl(142, 58%, 35%);
-  cursor: pointer;
-}
-
+/* Form and Input Styling */
 form.create-note {
   position: relative;
   width: 480px;
-  margin: 30px auto 20px auto;
+  margin: 30px auto;
   background: #fff;
   padding: 15px;
   border-radius: 7px;
@@ -169,4 +141,90 @@ form.create-note button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+/* Checkbox and Label Styling */
+.note-label {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: hsl(142, 58%, 25%);
+  margin: 8px 0;
+}
+
+.note-label input {
+  margin-right: 10px;
+  margin-left: 30px;
+  transform: translateY(1px);
+  width: 18px;
+  height: 18px;
+}
+
+.note-label:hover {
+  color: hsl(142, 58%, 35%);
+  cursor: pointer;
+}
+
+/* Responsive Design: Smaller Screens */
+@media (max-width: 768px) {
+  .note {
+    width: 100%; /* Full width on mobile */
+    margin: 8px 0;
+  }
+
+  form.create-note {
+    width: 90%; /* Adjust form for mobile */
+  }
+
+  header img {
+    width: 80%; /* Scale down header image */
+  }
+
+  .app-container {
+    padding: 10px;
+  }
+}
+
+/* Landscape Tablet Adjustments */
+@media (max-width: 1024px) and (orientation: landscape) {
+  header {
+    height: 3rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: hsl(141, 44%, 20%);
+    color: #fff;
+  }
+
+  header, footer {
+    background-color: hsl(141, 44%, 25%);
+    color: #efffa8;
+  }
+
+  .note {
+    background: hsl(141, 44%, 30%);
+    color: #efffa8;
+  }
+}
+
+/* Accessibility: Focus States */
+input:focus, textarea:focus, button:focus {
+  outline: 2px solid hsl(142, 58%, 40%);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar Styling */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
 }
