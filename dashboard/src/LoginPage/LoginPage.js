@@ -11,19 +11,20 @@ function LoginPage() {
   function handleSubmit(event) {
     event.preventDefault();
     // fetch login data
-      ApiClient.login(username,password).then(response=>{
-        if(response.ok){ // status == 200
+    ApiClient.login(username, password).then(response => {
+      if (response.ok) { // status == 200
 
-          response.json().then(data=>{
-            cookies.set('token', data);
-            navigate("/dashboard");
+        response.json().then(data => {
+          cookies.set('token', data)
+          navigate("/dashboard");
 
-          })
-        }else{
-          alert("Invalid credentials!");
 
-        }
-      })
+        })
+      } else {
+        alert("Invalid credentials!");
+
+      }
+    })
 
 
   }

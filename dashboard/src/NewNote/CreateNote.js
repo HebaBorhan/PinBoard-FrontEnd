@@ -27,6 +27,12 @@ function CreateNote(props) {
 
     // Fetch notes from backend when component mounts
     useEffect(() => {
+        // check if logged in
+        ApiClient.getUser().then(response => {
+            if (!response.ok) window.location.href = '/login';
+        })
+
+        
         fetchNotes();
     }, []);
 

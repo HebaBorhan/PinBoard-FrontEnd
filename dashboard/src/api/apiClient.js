@@ -69,7 +69,7 @@ export default class ApiClient {
 
     static getNotes = async () => {
 
-        const token = cookies.get('token'); // Retrieve JWT token from cookies
+        const token = await cookies.get('token'); // Retrieve JWT token from cookies
         console.log(token)
         const response = await fetch(getNote, {
             method: 'GET',
@@ -83,7 +83,7 @@ export default class ApiClient {
     };
 
     static updateNote = async (id, updatedData) => {
-        const token = cookies.get('token');
+        const cook = cookies.get('token');
         const response = await fetch(`${baseUrl}/notes/${id}`, {
             method: 'PUT',
             headers: {
