@@ -32,7 +32,7 @@ function CreateNote(props) {
             if (!response.ok) window.location.href = '/login';
         })
 
-        
+
         fetchNotes();
     }, []);
 
@@ -109,7 +109,7 @@ function CreateNote(props) {
 
         ApiClient.createNote(note).then((response) => {
             if (response.ok) {
-                    window.location.reload(); // Reload after successful submission
+                window.location.reload(); // Reload after successful submission
             }
         });
 
@@ -258,6 +258,16 @@ function CreateNote(props) {
                             />
                         )}
 
+                        {/* Grouping Bold and Italic checkboxes in a flex container */}
+                        <div
+                            style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                marginTop: "10px",
+                                width: "50%",
+                            }}
+                        ></div>
+                        
                         <label className="note-label">
                             <input
                                 type="checkbox"
