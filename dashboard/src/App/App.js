@@ -57,7 +57,7 @@ function App() {
                       color={newNote.color}
                       isBold={newNote.isBold}
                       isItalic={newNote.isItalic}
-                      image={newNote.image}
+                      image={newNote.imageUrl}
                       onDelete={deleteNote}
                     />
                   ))}
