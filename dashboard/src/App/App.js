@@ -7,6 +7,7 @@ import CreateNote from "../NewNote/CreateNote";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import Register from "../Registration/Register";
+import ForgotPassword from "../ForgotPassword/ForgotPassword"
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/registration" element={<Register />}/>
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route
               path="/dashboard"
               element={
