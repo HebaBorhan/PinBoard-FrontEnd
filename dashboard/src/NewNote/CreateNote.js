@@ -108,10 +108,8 @@ function CreateNote(props) {
         console.log(note)
 
         ApiClient.createNote(note).then((response) => {
-            if (response.status === 200) {
-                response.json().then((data) => {
+            if (response.ok) {
                     window.location.reload(); // Reload after successful submission
-                });
             }
         });
 
