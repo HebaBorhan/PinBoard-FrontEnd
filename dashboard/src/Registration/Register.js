@@ -10,10 +10,10 @@ function Register() {
   });
 
   const [error, setError] = useState(""); // Store errors here
+  const [successMessage, setSuccessMessage] = useState(""); // Success message
   const [isSubmitting, setIsSubmitting] = useState(false); // Prevent duplicate submissions
   const navigate = useNavigate();
 
-  // Handle form input changes
   function handleChange(event) {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
@@ -22,7 +22,6 @@ function Register() {
     }));
   }
 
-  // Handle form submission
   async function handleSubmit(event) {
     event.preventDefault();
     setIsSubmitting(true); // Prevent multiple form submissions
@@ -31,8 +30,8 @@ function Register() {
       const response = await ApiClient.register(formData);
 
       if (response.status === 201) {
-        alert("Registration successful! Please log in.");
-        navigate("/login"); // Redirect to login page
+        setSuccessMessage("Registration successful! Redirecting to login...");
+        setTimeout(() => navigate("/login"), 2000); // Redirect after 2s
       } else {
         const data = await response.json();
         setError(data.error || "Registration failed. Try again.");
@@ -49,6 +48,7 @@ function Register() {
     <div style={{ textAlign: "center", marginTop: "100px" }}>
       <h1>Register</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
+      {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
       <form onSubmit={handleSubmit} style={{ display: "inline-block" }}>
         <div>
           <input
@@ -86,7 +86,7 @@ function Register() {
         <button
           type="submit"
           style={{ padding: "10px 20px", marginTop: "10px" }}
-          disabled={isSubmitting} // Disable button while submitting
+          disabled={isSubmitting}
         >
           {isSubmitting ? "Registering..." : "Register"}
         </button>
