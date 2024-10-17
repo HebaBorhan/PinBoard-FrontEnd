@@ -9,20 +9,20 @@ function CreateNote(props) {
     const [error, setError] = useState(""); // Store any error messages
 
     const [note, setNote] = useState({
-      title: "",
-      titleFont: "Arial",
-      titleColor: "#000000",
-      isTitleBold: false,
-      isTitleItalic: false,
-      content: "",
-      contentFont: "Arial",
-      contentColor: "#000000",
-      color: "#FFFFFF",
-      isBold: false,
-      isItalic: false,
-      image: "",        // Store uploaded image data URL
-      imageFile: null,  // Store actual image file
-      imageUrl: ""      // Store the image URL for preview
+        title: "",
+        titleFont: "Arial",
+        titleColor: "#000000",
+        isTitleBold: false,
+        isTitleItalic: false,
+        content: "",
+        contentFont: "Arial",
+        contentColor: "#000000",
+        color: "#FFFFFF",
+        isBold: false,
+        isItalic: false,
+        image: "",        // Store uploaded image data URL
+        imageFile: null,  // Store actual image file
+        imageUrl: ""      // Store the image URL for preview
     });
 
     // Fetch notes from backend when component mounts
@@ -33,10 +33,14 @@ function CreateNote(props) {
     async function fetchNotes() {
         try {
             const response = await ApiClient.getNotes();
-            console.log (response);
+            console.log(response);
             if (response.ok) {
                 const data = await response.json();
+                console.log(data);
                 setNotes(data);
+                props.setNotes(data.note);
+
+
             } else {
                 console.error("Failed to fetch notes");
             }

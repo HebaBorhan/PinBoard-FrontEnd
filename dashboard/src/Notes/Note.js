@@ -22,10 +22,18 @@ function Note(props) {
   // Save the updated note
   async function saveNote() {
     try {
+      console.log(props.id);
       const response = await ApiClient.updateNote(props.id, editedNote);
       if (response.ok) {
-        props.onUpdate(props.id, editedNote); // Update parent state
-        setIsEditing(false); // Exit edit mode
+        ApiClient.updateNote(props.id, editedNote).then(ress => {
+          ress.json().then(data => {
+            console.log(data)
+
+            setIsEditing(false);
+            // Exit edit mode
+            window.location.reload()
+          })
+        }); // Update parent state
       } else {
         console.error("Failed to update note");
       }
@@ -35,8 +43,10 @@ function Note(props) {
   }
 
   // Handle note deletion
-  function handleClick() {
-    props.onDelete(props.id); // Call the parent’s delete function
+  async function handleClick() {
+    // props.onDelete(props.id); // Call the parent’s delete function
+    await ApiClient.deleteNote(props.id);
+    window.location.reload();
   }
 
   return (

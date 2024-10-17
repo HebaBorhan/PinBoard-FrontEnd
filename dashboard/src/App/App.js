@@ -41,11 +41,11 @@ function App() {
               path="/dashboard"
               element={
                 <>
-                  <CreateNote onAdd={addNote} />
+                  <CreateNote onAdd={addNote} setNotes={setNotes} />
                   {notes.map((newNote, index) => (
                     <Note
                       key={index}
-                      id={index}
+                      id={newNote._id}
                       title={newNote.title}
                       titleFont={newNote.titleFont}
                       titleColor={newNote.titleColor}

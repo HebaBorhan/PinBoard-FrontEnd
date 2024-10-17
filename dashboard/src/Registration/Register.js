@@ -28,7 +28,7 @@ function Register() {
 
     try {
       const response = await ApiClient.register(formData);
-
+      console.log(response);
       if (response.status === 201) {
         setSuccessMessage("Registration successful! Redirecting to login...");
         setTimeout(() => navigate("/login"), 2000); // Redirect after 2s
