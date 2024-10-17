@@ -114,4 +114,20 @@ export default class ApiClient {
         window.location.href = '/';
 
     }
+
+    static forgotPassword = async (email) => {
+        const response = await fetch(`${baseUrl}/forgot-password`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email }),
+        });
+    
+        if (!response.ok) {
+            console.error('Failed to send temporary password:', await response.json());
+        }
+        return response;
+    };
+    
 }
